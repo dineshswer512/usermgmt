@@ -11,15 +11,17 @@ class DeleteUserComponent extends Component {
         }
 
         this.userIdHandler = this.userIdHandler.bind(this);
+        this.removeUser = this.removeUser.bind(this);
     }
 
-    removeUser = (userId) => {
-        userId.preventDefault();
+    removeUser() {
+        let userid = this.state.userId;
+        console.log('user => ' + userid);
 
-        UserService.deleteUser(userId).then(res => {
+        UserService.deleteUser(userid).then(res => {
+            //this.setState({user})
             this.props.history.push('/users');
         });
-
     }
 
     userIdHandler = (event) => {
@@ -42,7 +44,7 @@ class DeleteUserComponent extends Component {
                                             value={this.state.userId} onChange={this.userIdHandler} />
                                     </div>
 
-                                    <button className="btn btn-danger" onClick={this.removeUser}>Remove User</button>
+                                    <button className="btn btn-danger" onClick={() => this.removeUser}>Remove User</button>
 
                                 </form>
                             </div>

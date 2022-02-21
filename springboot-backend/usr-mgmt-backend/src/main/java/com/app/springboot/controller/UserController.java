@@ -39,8 +39,8 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    @DeleteMapping("/users/{userid}")
-    public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable int userId) throws DataNotFoundException {
+    @DeleteMapping("/users/")
+    public ResponseEntity<Map<String, Boolean>> deleteUser(@Q int userId) throws DataNotFoundException {
         User user = userRepository.findById(userId).orElseThrow(
                 () -> new DataNotFoundException("User not exist with Id : "+ userId));
         userRepository.delete(user);
