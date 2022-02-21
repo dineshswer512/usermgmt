@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { Component } from 'react';
 import UserService from '../services/UserService';
 
@@ -14,12 +13,9 @@ class DeleteUserComponent extends Component {
         this.removeUser = this.removeUser.bind(this);
     }
 
-    removeUser() {
-        let userid = this.state.userId;
-        console.log('user => ' + userid);
-
-        UserService.deleteUser(userid).then(res => {
-            //this.setState({user})
+    removeUser = (e) => {
+        e.preventDefault();
+        UserService.deleteUser(this.state.userId).then(res => {
             this.props.history.push('/users');
         });
     }
@@ -44,7 +40,7 @@ class DeleteUserComponent extends Component {
                                             value={this.state.userId} onChange={this.userIdHandler} />
                                     </div>
 
-                                    <button className="btn btn-danger" onClick={() => this.removeUser}>Remove User</button>
+                                    <button className="btn btn-danger" onClick={this.removeUser}>Remove User</button>
 
                                 </form>
                             </div>
