@@ -18,10 +18,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/")
-//@CrossOrigin(origins = "http://localhost:8081")
 public class UserController {
 
     @Autowired
@@ -39,7 +38,7 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    @DeleteMapping("/users/")
+    @DeleteMapping("/users/{userId}")
     public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable int userId) throws DataNotFoundException {
         User user = userRepository.findById(userId).orElseThrow(
                 () -> new DataNotFoundException("User not exist with Id : "+ userId));

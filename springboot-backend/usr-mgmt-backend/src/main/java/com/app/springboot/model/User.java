@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Date;
 
 @Entity
 @Table(name = "users")
@@ -22,13 +23,13 @@ public class User {
     @Column(name = "address")
     private String address;
     @Column(name = "joining_date")
-    private String joiningDate;
+    private Date joiningDate;
 
     public User () {
 
     }
 
-    public User(String name, String email, String address, String joiningDate) {
+    public User(String name, String email, String address, Date joiningDate) {
         super();
         this.name = name;
         this.email = email;
@@ -68,11 +69,11 @@ public class User {
         this.address = address;
     }
 
-    public String getJoiningDate() {
+    public Date getJoiningDate() {
         return joiningDate;
     }
 
-    public void setJoiningDate(String joiningDate) {
+    public void setJoiningDate(Date joiningDate) {
         this.joiningDate = joiningDate;
     }
 
