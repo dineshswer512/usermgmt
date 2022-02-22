@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { Component } from 'react';
 import UserService from '../services/UserService';
 
@@ -11,15 +10,14 @@ class DeleteUserComponent extends Component {
         }
 
         this.userIdHandler = this.userIdHandler.bind(this);
+        this.removeUser = this.removeUser.bind(this);
     }
 
-    removeUser = (userId) => {
-        userId.preventDefault();
-
-        UserService.deleteUser(userId).then(res => {
+    removeUser = (e) => {
+        e.preventDefault();
+        UserService.deleteUser(this.state.userId).then(res => {
             this.props.history.push('/users');
         });
-
     }
 
     userIdHandler = (event) => {

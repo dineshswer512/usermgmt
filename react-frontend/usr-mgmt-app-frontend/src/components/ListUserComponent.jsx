@@ -31,8 +31,11 @@ class ListUserComponent extends Component {
             <div>
                 <h2 className='text-center'>Users List</h2>
                 <div className="row">
-                    <button className="btn btn-primary" onClick={this.addUser}> Add User</button>
-                    <button className="btn btn-danger" onClick={this.deleteUser}> Delete User</button>
+                    <td>
+                        <button style={{ marginRight: "15px" }} className="btn btn-primary" onClick={this.addUser}> Add User</button>
+
+                        <button style={{ marginRight: "75px" }} className="btn btn-danger" onClick={this.deleteUser}> Remove User</button>
+                    </td>
                 </div>
                 <div className="row">
                     <table className='table table-stripped table-bordered'>
@@ -42,7 +45,7 @@ class ListUserComponent extends Component {
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Address</th>
-                                <th>Joining Date</th>
+                                <th>Joining Month</th>
                             </tr>
                         </thead>
 
